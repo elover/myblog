@@ -1,0 +1,128 @@
+#article {
+
+}
+
+#article-header {
+    background: url(/static/images/articleHeader.jpeg) center center;
+    overflow: hidden;
+    padding: 50px;
+    background-size: 100%;
+}
+
+#article-header .article-header-inner {
+    width: 1000px;
+    margin: 0 auto;
+    max-width: 65.141em;
+    padding: 2.618em;
+    background: rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+}
+
+#article-header .article-header-inner h1 {
+    font-size: 3.631em;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+#article-header .article-header-inner .article-info {
+    color: #4f4f4f;
+
+}
+
+#article-content {
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+#article-footer {
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+#article-footer .comments {
+
+}
+
+#article-footer .comments .comments-header {
+    text-align: center;
+    border-bottom: 1px solid #EAEAEA;
+    padding-bottom: 20px;
+    margin: 30px 100px;
+    position: relative;
+}
+
+#article-footer .comments .comments-header:after {
+    font-family: 'FontAwesome';
+    font-size: 100%;
+    font-weight: normal;
+    content: '\f078';
+    position: absolute;
+    top: 37px;
+    left: 50%;
+    margin-left: -7px;
+}
+
+#article-footer .comments .comment_form .form-item {
+    margin-left: 40px;
+    margin-bottom: 20px;
+    display: inline-block;
+
+}
+
+#article-footer .comments .comment_form .form-item:first-of-type {
+    margin-left: 0;
+}
+
+#article-footer .comments .comment_form .form-item input {
+    padding: .236em .5em;
+    border: 3px solid #EAEAEA;
+    font-size: 1em;
+    line-height: 1.618em;
+    background: #FFF;
+    font-family: inherit;
+    outline: none;
+    border-radius: 300px;
+}
+
+#article-footer .comments .comment_form .form-area textarea {
+    padding: .236em .5em;
+    border: 3px solid #EAEAEA;
+    font-size: 1em;
+    line-height: 1.618em;
+    background: #FFF;
+    font-family: inherit;
+    outline: none;
+    width: 92.5%;
+    border-radius: 10px;
+}
+
+#article-footer .comments .comment_form .button {
+    display: inline-block;
+    padding: 0.8em 3.618em;
+    color: #FFF;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    width: auto;
+    line-height: 1.618em;
+    background: #FF7377;
+    -webkit-transition: all ease-in-out 0.2s;
+    -moz-transition: all ease-in-out 0.2s;
+    -ms-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
+    -webkit-border-radius: 300px;
+    border-radius: 300px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+#article-footer .comments .comment_item {
+    margin:40px;
+}
+#article-footer .comments .comment_item .comment_item_content {
+    margin-left:97px;
+}

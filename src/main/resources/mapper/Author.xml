@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.myblog.dao.AuthorDao">
+    <!--<select id="getAllArticle" resultType="hashmap">-->
+        <!--select * from blog_articles INNER JOIN blog_authorinfo ON author_id = blog_authorinfo.id order by pub_date DESC;-->
+    <!--</select>-->
+    <select id="selectAuthorById" parameterType="int" resultType="Author">
+        select * from blog_authorinfo where id = #{id}
+    </select>
+    <select id="selectAllAuthor" parameterType="int" resultType="Author">
+        select * from blog_authorinfo
+    </select>
+   <select id="getPasswordByloginName" parameterType="String" resultType="String">
+       select password from blog_authorinfo where login_name = #{loginName}
+   </select>
+
+
+</mapper>

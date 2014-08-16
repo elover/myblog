@@ -1,0 +1,108 @@
+{% extends "mainTem/base.html" %}
+{% block title %} -music {{ content.h1 }} {% endblock %}
+{% block content %}
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    #background {
+        width: 100%;
+    }
+
+    #music_wrapper_box {
+        width: 1000px;
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        top: 10%;
+    }
+
+    .music_box_list {
+        width: 1000px;
+        margin: 0 auto 0 -50%;
+    }
+
+    .music_box {
+        width: 300px;
+        height: 200px;
+        float: left;
+        background-color: rgba(252, 251, 247, 0.6);
+        border-radius: 250px;
+        margin-left: 50px;
+        -webkit-transition: background-color 2000ms linear;
+        -moz-transition: background-color 2000ms linear;
+        -o-transition: background-color 2000ms linear;
+        -ms-transition: background-color 2000ms linear;
+        transition: background-color 2000ms linear;
+
+    }
+    #music_2 {
+        width: 500px;
+        height:600px;
+        overflow: hidden;
+        border-radius: 100px;
+        background: rgba(252, 251, 247, 0.7);
+        position: absolute;
+        margin-left: 400px;
+        top: -50px;
+    }
+
+    .music_box:first-child {
+        margin-left: 0;
+    }
+
+    .music_content {
+        margin-top: 83px;
+        text-align: center;
+    }
+</style>
+<div id="parent">
+    <img id="background" src="/static/images/night.jpg" alt=""/>
+</div>
+<div id="music_wrapper_box">
+    <div class="music_box_list">
+        <div id="music_1" class="music_box animated fadeIn">
+            <div class="music_content">
+                {% autoescape off %}
+                    {{ content.music_url }}
+                {% endautoescape %}
+            </div>
+        </div>
+        <div id="music_2" class="animated fadeInDownBig">
+            <div class="music_content">
+                <h2>{{ content.h1 }}</h2>
+                {% load markup %}
+                {{ content.content|markdown:'codehilite' }}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    seajs.config({
+        base: "/static/"
+    })
+    seajs.use("javascripts/lib/rainyday.min", function () {
+        function run() {
+            var engine = new RainyDay({
+                element: 'background',
+                blur: 10,
+                opacity: 1,
+                fps: 30
+            });
+            engine.rain([
+                [2, 4, 800]
+            ]);
+            engine.rain([
+                [3, 3, 0.88],
+                [5, 5, 0.9],
+                [6, 2, 1]
+            ], 2000);
+            setInterval(function () {
+                document.getElementById("music_1").style.backgroundColor = "rgba(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ",0.6)"
+            }, 2000)
+        };
+        document.body.onload = run;
+    })
+</script>
+{% endblock %}

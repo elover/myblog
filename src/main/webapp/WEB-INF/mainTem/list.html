@@ -1,0 +1,35 @@
+{% extends "mainTem/base.html" %}
+{% block title %} -做一个有意思的人 {% endblock %}
+{% block headerSide %}side-header left-header{% endblock %}
+
+{% block header %}
+{% include "mainTem/header-side.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="animated fadeIn">
+    <div id="main">
+        <ul class="home-tabber clearfix">
+            <li ><a href="{% url index %}">Articles</a>
+            </li>
+            <li class="active"><a href="{% url list %}">index</a>
+            </li>
+        </ul>
+        <div class="home-tabs">
+            {% if articles_list %}
+            {% for article in articles_list %}
+            <div class="articles list clearfix">
+                <div class="articles-header">
+                    <h1><a href="{% url article article.id %}">
+                        {{article.h1}}
+                    </a>
+                    </h1>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

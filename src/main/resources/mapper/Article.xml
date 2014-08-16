@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.myblog.dao.ArticleDao">
+    <resultMap id="ArticleResult" type="Article">
+        <association property="author" select="cn.myblog.dao.AuthorDao.selectAuthorById" column="author_id" javaType="Author">
+            <id property="id" column="id"/>
+        </association>
+        <association property="category" select="cn.myblog.dao.CategoryDao.getCategory" column="category_id" javaType="Category">
+            <id property="id" column="id"/>
+        </association>
+    </resultMap>
+    <select id="getAllArticle" resultMap="ArticleResult">
+        select * from blog_articles order by pub_date DESC
+    </select>
+    <select parameterType="long" id="getArticleByCategoryId" resultMap="ArticleResult">
+        select * from blog_articles where category_id = #{categoryId} order by pub_date DESC
+    </select>
+
+    <select id="getAllArticleList" resultType="HashMap">
+        select id, h1 from blog_articles order by pub_date DESC
+    </select>
+    <select parameterType="long" id="getArticleListByCategoryId" resultType="HashMap">
+        select id, h1 from blog_articles where category_id = #{categoryId} order by pub_date DESC
+    </select>
+    <select parameterType="long" id="getArticleById" resultMap="ArticleResult">
+        select * from blog_articles where id = #{id}
+    </select>
+    <update id="addCount" parameterType="Article">
+        update blog_articles set count = #{count} where id = #{id}
+    </update>
+
+    <insert id="postArticle" parameterType="Article" useGeneratedKeys="true"
+            keyProperty="id">
+       insert into blog_articles (h1,content,music_url,author_id,category_id,content_html,pub_date)
+       value (#{h1},#{content},#{musicUrl},#{authorId},#{categoryId},#{contentHtml},#{pubDate})
+    </insert>
+    <update id="updateArticle" parameterType="Article">
+        update blog_articles set h1 = #{h1} ,content = #{content},music_url = #{musicUrl},author_id = #{authorId},
+        category_id = #{categoryId},content_html = #{contentHtml}
+        where id = #{id}
+    </update>
+
+
+
+    <!--<select id="getAllArticle" resultMap="ArticleResult">-->
+        <!--select *,blog_category.name as categoryName from blog_articles inner join blog_authorinfo on author_id = blog_authorinfo.id inner join blog_category on category_id = blog_category.id order by pub_date DESC-->
+    <!--</select>-->
+
+
+</mapper>

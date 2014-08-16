@@ -1,0 +1,62 @@
+#set($layout = "layout/layout.htm")
+#set($title = "做一个有意思的人")
+#set($headerSide = "top-header")
+#parse("layout/common.htm")
+#parse("layout/header-top.htm")
+<div id="content">
+    <div id="main">
+        <div id="article">
+            <div id="article-header">
+                <div class="article-header-inner">
+                    <h1 class="animated bounceInDown">${content.h1}</h1>
+
+                    <div class="article-info">
+                        <span class="post-date">Time: $date.format('yyyy-M-d H:m:s',${content.pubDate})&nbsp;&nbsp;</span>
+                        <span class="post-author">By: ${content.author.name}</span>
+                        <span class="post-count">点击数：${content.count}</span>
+                    </div>
+                </div>
+
+            </div>
+##            {% if content.category.name == "Music" %}
+            <div id="article-content">
+##                {% autoescape off %}
+##                {{ content.music_url }}
+##                {% endautoescape %}
+##                {% else %}
+                <div id="article-content">
+                    ${content.contentHtml}
+                </div>
+                <div id="article-footer">
+                    <!-- Duoshuo Comment BEGIN -->
+                    <div class="ds-thread"></div>
+                    <script type="text/javascript">
+                        var duoshuoQuery = {short_name: "lifesinger"};
+                        (function () {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';
+                            ds.async = true;
+                            ds.src = 'http://static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0]
+                                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!-- Duoshuo Comment END -->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="disqus_thread"></div>
+<script>
+    seajs.config({
+        base: '/static/javascripts/',
+        alias: {
+            //'jquery': 'sea-modules/jquery/jquery/1.10.1/jquery.js'
+        }
+    });
+</script>
+
+

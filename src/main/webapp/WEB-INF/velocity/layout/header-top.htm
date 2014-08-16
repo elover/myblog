@@ -1,0 +1,16 @@
+<div id="header" class="top-header">
+    <div class="inner-header">
+        <a href="${ctx}/" id="logo">
+            <h1>西楼</h1>
+            <img src="/static/images/logo.png" alt="lovejs">
+        </a>
+        <ul id="nav" class="nav level">
+            #foreach($item in $categoryList)
+                <li class="nav-item
+                    #if(${currentSlug} == ${item.slug}) current_page_item #end ">
+                    <a href="${ctx}/category/${item.slug}">${item.name}</a>
+                </li>
+            #end
+        </ul>
+    </div>
+</div>

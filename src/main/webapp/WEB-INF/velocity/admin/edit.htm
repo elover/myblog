@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    #parse("layout/common.htm")
+    <title>发布文章</title>
+    <link rel="stylesheet" href="${ctx}/static/admin/css/editor.css"/>
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f7;
+            max-width: 1000px;
+            padding: 10px;
+            margin: 10px auto;
+        }
+
+        label {
+            vertical-align: middle;
+        }
+
+        #submitButton {
+            margin-top: 20px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 20px;
+            color: #FFF;
+            border: none;
+            background: #3071A9;
+        }
+    </style>
+</head>
+<body>
+<h1>发布文章</h1>
+
+##{% if form.errors %}
+<p style="color: red;">
+    $!{message}
+</p>
+##{% endif %}
+<form action="${ctx}/admin/postArticle" method="post" class="editor-wrapper">
+    #if(${article.id})
+        <input type="hidden" name="id" value="${article.id}"/>
+    #end
+    <div class="fn-form-item">
+        <input class="title" type="text" value="$!{article.h1}" name="h1" placeholder="标题">
+    </div>
+    <div class="fn-form-item">
+        <textarea name="content" placeholder="内容">
+            $!{article.content}
+        </textarea>
+    </div>
+    <div class="fn-form-item">
+        <input type="text" class="title" placeholder="音乐" value="$!{article.musicUrl}" name="musicUrl">
+    </div>
+    <div class="fn-form-item">
+        <label for="id_author">作者</label>
+        <select name="authorId">
+            #foreach($author in ${authorList})
+                #if(${article.author.id} && ${article.author.id} == ${author.id})
+                    <option selected value="${author.id}">${author.name}</option>
+                #else
+                    <option value="${author.id}">${author.name}</option>
+                #end
+            #end
+        </select>
+        <label style="margin-left: 20px" for="id_category">分类</label>
+        <select name="categoryId">
+            #foreach($category in $categoryList)
+                #if(${article.category.id} && ${article.category.id} == ${category.id})
+                    <option selected value="${category.id}">${category.name}</option>
+                #else
+                    <option value="${category.id}">${category.name}</option>
+                #end
+            #end
+        </select>
+        <input type="hidden" id="contentHtml" name="contentHtml">
+    </div>
+    <div class="fn-form-item">
+        <input type="submit" id="submitButton" value="提交">
+    </div>
+</form>
+<script type="text/javascript" src="${ctx}/static/admin/js/marked.js"></script>
+<script type="text/javascript" src="${ctx}/static/admin/js/editor.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var editor = new Editor();
+    editor.render();
+    jQuery('#submitButton').on("click", function (event) {
+        event.preventDefault();
+        var text = editor.codemirror.getValue();
+        jQuery("#contentHtml").val(editor.constructor.markdown(text));
+        jQuery("form").submit();
+    })
+
+</script>
+</body>
+</html>

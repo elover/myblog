@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    #parse("layout/common.htm")
+    <title>管理后台</title>
+    <link rel="stylesheet" href="${ctx}/static/css/normalize.css"/>
+</head>
+<body>
+<a href="${ctx}/admin/edit">发布新文章</a>
+<div>
+    <p>$!{message}</p>
+    <p>文章列表</p>
+    <ol>
+        #foreach($article in $articleList)
+            <li>
+                ${article.h1}
+                <a style="margin-left: 20px" href="${ctx}/admin/edit?articleId=${article.id}">编辑文章</a>
+                <a style="margin-left: 20px" href="${ctx}/article/${article.id}" target="_blank">查看文章</a>
+            </li>
+        #end
+    </ol>
+</div>
+</body>
+</html>

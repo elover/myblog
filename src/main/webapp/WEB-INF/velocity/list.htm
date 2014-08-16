@@ -1,0 +1,42 @@
+#set($layout = "layout/layout.htm")
+#set($title = "做一个有意思的人")
+#set($headerSide = "side-header left-header")
+#parse("layout/common.htm")
+#parse("layout/side-header.htm")
+<div id="content" class="animated fadeIn">
+    <div id="main">
+        <ul class="home-tabber clearfix">
+            <li>
+                <a href="${ctx}/">Articles</a>
+            </li>
+            #if(${currentUrl} == "/")
+            <li class="active" ><a href="${ctx}/list">Index</a>
+            #else
+            <li class="active" ><a href="${ctx}${currentUrl}/list">Index</a>
+            #end
+        </li>
+        </ul>
+        <div class="home-tabs">
+            #foreach($article in $articleList)
+            <div class="articles list clearfix">
+                <div class="articles-header">
+                    <h1><a href="${ctx}/article/${article.id}">
+                        ${article.h1}
+                    </a>
+                    </h1>
+                </div>
+            </div>
+            #end
+        </div>
+    </div>
+</div>
+<script>
+    seajs.config({
+        base: '/static/javascripts/',
+        alias: {
+            //'jquery': 'sea-modules/jquery/jquery/1.10.1/jquery.js'
+        }
+    });
+</script>
+
+

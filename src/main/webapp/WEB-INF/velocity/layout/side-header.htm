@@ -1,0 +1,37 @@
+<div id="header" class="side-header left-header">
+    <div class="inner-header">
+        <a href="${ctx}/" id="logo">
+            <h1>西楼</h1>
+            <img src="/static/images/logo.png" alt="lovejs">
+        </a>
+
+        <div class="about">
+            <p>by nan</p>
+
+            <p>front-end developer in thinkjoy</p>
+        </div>
+        <ul id="nav" class="nav vertical">
+            #foreach($item in $categoryList)
+                <li class="nav-item
+                    #if(${currentSlug} == ${item.slug}) current_page_item #end ">
+                    <a href="${ctx}/category/${item.slug}">${item.name}</a>
+                </li>
+            #end
+            <li class="nav-item">
+                <a href="${ctx}/article/1">about</a>
+            </li>
+            <!--<li class="nav-item"><a href="">音乐</a>-->
+            <!--二级菜单-->
+            <!--<ul class="sub-nav">-->
+            <!--<li class="sub-item"><a href="{% url index %}">test1</a>-->
+            <!--</li>-->
+            <!--<li class="sub-item"><a href="{% url index %}">test2</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</li>-->
+
+        </ul>
+
+    </div>
+
+</div>

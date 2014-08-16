@@ -1,0 +1,50 @@
+## 分页
+#macro(pagination $url,$pagaination)
+    #if($pagaination.pageNumber  > 1)
+    <div class="ui-pagination">
+    ##    上一页
+        #if($pagaination.currentPage != 1)
+            #set($prePageNum = ($pagaination.currentPage - 1))
+        #else
+            #set($prePageNum = 1)
+        #end
+    ##    下一页
+        #if($pagaination.currentPage != $pagaination.pageNumber)
+            #set($nextPageNum = ($pagaination.currentPage + 1))
+        #else
+            #set($nextPageNum = $pagaination.pageNumber)
+        #end
+        #if($pagaination.currentPage != 1)
+            <a class="ui-pagination-pre" href="${url}pageNo=${prePageNum}">上一页</a>
+        #end
+        #foreach($i in $pagaination.pageList)
+            #if($i == $pagaination.currentPage)
+                <a class="ui-pagination-current" href="${url}pageNo=${i}">${i}</a>
+            #else
+                <a href="${url}pageNo=${i}">${i}</a>
+            #end
+        #end
+        #if($pagaination.currentPage != $pagaination.pageNumber)
+            &nbsp;&nbsp;&nbsp;&nbsp;......&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="ui-pagination-next" href="${url}pageNo=${nextPageNum}">下一页</a>
+        #end
+    </div>
+    #end
+#end
+
+## 用户反馈
+#macro(feedBack)
+<a href="${ctx}/account/feedback" id="ui_feedback">
+    <i class="iconfont">&#xe60b;</i>
+</a>
+#end
+
+## back top
+#macro(backTop)
+<a href="#header" id="ui_back_top">
+    <i class="iconfont">
+        &#xe627;
+    </i>
+</a>
+#end
+

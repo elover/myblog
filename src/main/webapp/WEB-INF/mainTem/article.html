@@ -1,0 +1,60 @@
+{% extends "mainTem/base.html" %}
+{% block title %}  {{ content.h1 }} {% endblock %}
+{% block headerSide %}top-header{% endblock %}
+
+{% block header %}
+{% include "mainTem/header-top.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div id="content">
+    <div id="main">
+        <div id="article">
+            <div id="article-header">
+                <div class="article-header-inner">
+                    <h1 class="animated bounceInDown">{{ content.h1 }}</h1>
+
+                    <div class="article-info">
+                        <span class="post-date">Time: {{content.pub_date|date:"Y/m/d"}}&nbsp;&nbsp;</span>
+                        <span class="post-author">By: {{content.author}}</span>
+                        <span class="post-count">点击数：{{content.count}}</span>
+                    </div>
+                </div>
+
+            </div>
+            {% if content.category.name == "Music" %}
+                    <div id="article-content" class="fn-center">
+                {% autoescape off %}
+                    {{ content.music_url }}
+                {% endautoescape %}
+                {% else %}
+                    <div id="article-content">
+                {% endif %}
+                {% load markup %}
+                {{ content.content|markdown:'codehilite' }}
+            </div>
+            <div id="article-footer">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread"></div>
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name: "lifesinger"};
+                    (function () {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = 'http://static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                                || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div id="disqus_thread"></div>
+{% endblock %}

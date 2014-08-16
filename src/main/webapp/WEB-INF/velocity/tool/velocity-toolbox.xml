@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+    <tool>
+        <key>string</key>
+        <scope>application</scope>
+        <class>cn.myblog.uitl.velocityTool.StringFormat</class>
+    </tool>
+    <!--<tool>-->
+        <!--<key>shiro</key> 可选默认为 shiro -->
+        <!--<scope>application</scope>-->
+        <!--<class>cn.thinkjoy.utilities.velocityTool.Permission</class>-->
+    <!--</tool>-->
+    <tool>
+        <key>import</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.view.ImportTool</class>
+    </tool>
+    <!--<tools>-->
+        <!--<toolbox scope="request">-->
+            <!--<key>context</key>-->
+            <!--<tool class="org.apache.velocity.tools.generic.ContextTool"/>-->
+        <!--</toolbox>-->
+    <!--</tools>-->
+    <tool>
+        <key>context</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.view.tools.ContextTool</class>
+    </tool>
+    <tool forceRelative="true">
+        <key>link</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.view.tools.LinkTool</class>
+    </tool>
+
+    <tool>
+        <key>date</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+
+    <!--<tool>-->
+        <!--<key>escape</key>-->
+        <!--<scope>application</scope>-->
+        <!--<class>org.apache.velocity.tools.generic.EscapeTool</class>-->
+    <!--</tool>-->
+
+
+    <!--<tool>-->
+        <!--<key>math</key>-->
+        <!--<scope>application</scope>-->
+        <!--<class>org.apache.velocity.tools.generic.MathTool</class>-->
+    <!--</tool>-->
+
+    <!--<tool>-->
+        <!--<key>cookie</key>-->
+        <!--<scope>request</scope>-->
+        <!--<class>org.apache.velocity.tools.view.tools.CookieTool</class>-->
+    <!--</tool>-->
+
+    <!--<tool>-->
+        <!--<key>link</key>-->
+        <!--<scope>request</scope>-->
+        <!--<class>org.apache.velocity.tools.view.tools.LinkTool</class>-->
+    <!--</tool>-->
+
+</toolbox>

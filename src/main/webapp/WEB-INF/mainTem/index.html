@@ -1,0 +1,105 @@
+{% extends "mainTem/base.html" %}
+{% block title %} -做一个有意思的人 {% endblock %}
+{% block headerSide %}side-header left-header{% endblock %}
+
+{% block header %}
+{% include "mainTem/header-side.html" %}
+{% endblock %}
+
+{% block content %}
+{% load url from future %}
+<div id="content" class="animated fadeIn">
+    <div id="main">
+        <ul class="home-tabber clearfix">
+            <li class="active"><a href="{% url 'index' %}">Articles</a>
+            </li>
+            <li><a href="{% url 'list' %}">index</a>
+            </li>
+        </ul>
+        <div class="home-tabs">
+            {% if latest_articles_list %}
+            {% for article in latest_articles_list %}
+            <div class="articles clearfix">
+                <div class="articles-header">
+                    <h1>
+                        <a href=
+                        {% if article.category.name == "Music" %}
+                            {% url "music" article.id %}
+                        {% else %}
+                            {% url "article" article.id %}
+                        {% endif %}>
+                        {{article.h1}}
+                        </a>
+                    </h1>
+
+                    <div class="articles-aside">
+                        <span class="post-date">Posted：{{article.pub_date|date:"Y/m/d"}}&nbsp;&nbsp;</span>
+                        <span class="post-author">By：{{article.author}}&nbsp;&nbsp;</span>
+                        <span class="post-count">点击数：{{article.count}}</span>
+                    </div>
+
+                </div>
+                <div class="articles-content clearfix">
+                    <div class="articles-side">
+                        <a href=
+                            {% if article.category.name == "Music" %}
+                            {% url "music" article.id %}
+                        {% else %}
+                            {% url "article" article.id %}
+                        {% endif %}>
+                            <img src={{ article.author.icon }} alt="">
+                        </a>
+                    </div>
+                    <div class="articles-main">
+                        {% load markup %}
+                        {% if article.category.name == "Music" %}
+                            {% autoescape off %}
+                                {{ article.music_url }}
+                            {% endautoescape %}
+                            <p>{{article.content|slice:"0:100"|markdown:'codehilite'}}...</p>
+                        {% else %}
+                            <p>{{article.content|slice:"0:200"|markdown:'codehilite'}}...</p>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+                <div class="articles-footer">
+                    <a href=
+                        {% if article.category.name == "Music" %}
+                            {% url "music" article.id %}
+                        {% else %}
+                            {% url "article" article.id %}
+                        {% endif %} class="button">继续阅读</a>
+                </div>
+
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {# 分页 #}
+        {% if pagination.pageTotal != 1 %}
+        <div class="pagination">
+            {% for i in pagination.pageTotal_list %}
+            {% if pagination.pageNumber == 0 and forloop.first %}
+            <a href="{% url 'index' %}?pageNumber=1" class="pagination-item action">1</a>
+            {% else %}
+            <a href="{% url 'index' %}?pageNumber={{ i }}" class="pagination-item
+                                    {% ifequal i pagination.pageNumber %} action {% endifequal %}">{{ i }}
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    seajs.config({
+        base: '/static/javascripts/',
+        alias: {
+            //'jquery': 'sea-modules/jquery/jquery/1.10.1/jquery.js'
+        }
+    });
+</script>
+{% endblock %}
+

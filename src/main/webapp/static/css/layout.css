@@ -1,0 +1,96 @@
+/*整体结构*/
+body {
+    background: #FCFBF7;
+    font-size: 16px;
+    line-height: 1.65;
+    font-family: "microsoft YaHei" Arial, Helvetica, sans-serif;
+    color: #1c1c1c;
+}
+
+#wrapper {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+
+}
+
+.side-header #header {
+    position: fixed;
+    width: 25%;
+    top: 0;
+    height: 100%;
+}
+
+.left-header #header {
+    left: 0;
+}
+
+.right-header #header {
+    right: 0;
+}
+
+.top-header #header {
+
+}
+
+#content {
+    margin-bottom: 100px;
+}
+
+.side-header #content {
+    width: 75%;
+    overflow: hidden;
+}
+
+.left-header #content {
+    margin-left: 25%;
+}
+
+.right-header #content {
+    margin-right: 25%;
+}
+
+#footer {
+    margin-left: 25%;
+    width: 75%;
+}
+
+/*整体结构end*/
+/*设备宽度低于769px（包括768px）*/
+@media only screen and (max-device-width: 769px) {
+    .side-header #header {
+        display: none;
+        width: 0;
+    }
+
+    .side-header #content {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .left-header #content {
+        margin-left: 0;
+    }
+
+    .right-header #content {
+        margin-right: 0;
+    }
+
+    #footer {
+        margin-left: 0;
+        width: 100%;
+    }
+    #main .home-tabs .articles .articles-content .articles-side a {
+        display: none !important;
+    }
+
+    .side-header #main {
+        width: 100% !important;
+        margin: 5px !important;
+    }
+
+}

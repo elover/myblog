@@ -1,0 +1,39 @@
+
+    /*全局样式*/
+    a {
+        text-decoration: none;
+    }
+    /*清除浮动*/
+    .clearfix {
+        *zoom: 1;
+    }
+    .clearfix:before, .clearfix:after {
+        display: table;
+        line-height: 0;
+        content:"";
+    }
+    .clearfix:after {
+        clear: both;
+    }
+    .fn-center {
+        text-align: center;
+    }
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #333;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #F5F5F5;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+    }
+    code {
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 18px;
+    }
+
+    /*全局样式end*/

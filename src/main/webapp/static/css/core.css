@@ -1,0 +1,394 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts//fontawesome-webfont.eot');
+    src: url('../fonts//fontawesome-webfont.woff') format('woff'), url('../fonts//fontawesome-webfont.ttf') format('truetype'), url('../fonts//fontawesome-webfont.svg#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*侧边栏*/
+.side-header #header {
+    background: #2F2A2E url(../images/header.jpg) no-repeat top center;
+    background-size: 100%;
+}
+
+.top-header #header {
+    background: #2F2A2E;
+}
+
+.side-header #header .inner-header {
+    margin: 60px 2.244em 0;
+    height: 500px;
+    color: #fff;
+}
+
+.top-header #header .inner-header {
+    padding: 10px;
+}
+
+.side-header #logo {
+    display: inline-block;
+    width: 100%;
+}
+
+.top-header #logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+#logo h1 {
+    color: #FFF;
+    font-size: 35px;
+    line-height: 73px;
+    float: left;
+    margin: 0;
+    font-family: "Georgia", "Helvetica Neue", Arial, sans-serif;
+}
+
+.top-header #logo h1 {
+    font-size: 30px;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo img {
+    vertical-align: middle;
+    float: right;
+}
+
+.top-header #logo img {
+    margin-left: 20px;
+    height: 50px;
+    float: none;
+}
+
+#nav.vertical {
+    padding-left: 0;
+    vertical-align: middle;
+    margin-top: 35px;
+}
+
+#nav.level {
+    display: inline-block;
+}
+
+#nav.vertical li {
+    list-style: none;
+    margin: 20px 0 0;
+}
+
+#nav.level li {
+    list-style: none;
+}
+
+#nav.level .nav-item {
+    display: inline-block;
+    position: relative;
+    margin-left: 40px;
+}
+
+#nav .nav-item >a {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+    -webkit-border-radius: 300px;
+    border-radius: 300px;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 8px 20px;
+    transition: all ease-in-out 0.3s;
+
+}
+
+#nav.vertical .nav-item > a {
+}
+
+#nav.level .nav-item > a {
+    padding: 5px 30px;
+
+}
+
+#nav.vertical .nav-item > a:hover, #nav.vertical .current_page_item > a {
+    background: #fff;
+    color: #2F2A2E;
+}
+
+#nav.level .nav-item > a:hover, #nav.level .current_page_item > a {
+    background: #fff;
+    color: #2F2A2E;
+}
+
+#nav.vertical .nav-item .sub-nav {
+    margin: 0;
+    display: none;
+    height: 0;
+}
+
+#nav.level .nav-item .sub-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    margin: 0 0 0 -40%;
+    text-align: center;
+    background: #FCFBF7;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    width: 180%;
+    padding-left: 0;
+
+}
+
+#nav.vertical .nav-item:hover .sub-nav {
+    display: block;
+    height: auto;
+    margin-top: 15px;
+    padding-left: 20px;
+    transition: all ease-in-out 0.5s;
+}
+
+#nav.level .nav-item:hover .sub-nav {
+    display: block;
+}
+
+#nav.vertical .nav-item .sub-nav .sub-item {
+    margin: 0;
+}
+
+#nav.level .nav-item .sub-nav .sub-item {
+    margin: 0 1em;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+#nav.vertical .nav-item .sub-nav .sub-item a {
+    font-size: 14px;
+    color: #FFF;
+    display: block;
+    line-height: 34px;
+    transition: all ease-in-out 0.5s;
+}
+
+#nav.level .nav-item .sub-nav .sub-item a {
+    font-size: 14px;
+    color: #9C9C9C;
+    display: block;
+    line-height: 35px;
+}
+
+#nav.vertical .nav-item .sub-nav .sub-item a:before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin: 0 .5em 0 0;
+    width: 0;
+    height: 0;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(255, 255, 255, 0.3);
+}
+
+#nav .nav-item .sub-nav .sub-item a:hover {
+    color: #FF7377;
+}
+
+/*侧边栏end*/
+
+/*content*/
+.side-header #main {
+    width: 75%;
+    margin: 40px 0 0 90px;
+}
+
+.left-header  #main {
+    float: left;
+}
+
+.right-header  #main {
+    float: right;
+}
+
+#main .home-tabber {
+    margin-bottom: 40px;
+    padding: 0 0 1em;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+#main .home-tabber li {
+    float: left;
+    width: 49.5%;
+    text-align: center;
+    font-family: "Georgia", "Helvetica Neue", Arial, sans-serif;
+    list-style: none;
+}
+
+#main .home-tabber li:first-child {
+    border-right: 1px solid #EAEAEA;
+}
+
+#main .home-tabber li.active {
+}
+
+#main .home-tabber li a {
+}
+
+#main .home-tabber li a {
+    /* font-family: "Open Sans", sans-serif; */
+    font-weight: 300;
+    font-size: 24px;
+    /*color: #FF7377;*/
+    color: #4D7344;
+}
+
+#main .home-tabber li.active a {
+    font-weight: 300;
+    color: #1C1C1C;
+    position: relative;
+}
+
+#main .home-tabber li.active a:after {
+    font-family: 'FontAwesome';
+    display: inline-block;
+    font-size: 100%;
+    margin-left: .618em;
+    font-weight: normal;
+    line-height: 1em;
+    width: 1em;
+    text-align: right;
+    content: '\f078';
+    margin: 0;
+    width: 20px;
+    position: absolute;
+    bottom: -33px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#main .home-tabs {
+    margin-top: 10px;
+}
+
+#main .home-tabs .articles {
+    border-bottom: 2px solid #EAEAEA;
+    position: relative;
+}
+
+#main .home-tabs .articles.list {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom-width: 1px;
+    height:auto;
+}
+
+#main .home-tabs .articles .articles-header {
+    margin-bottom: 20px;
+}
+
+#main .home-tabs .articles.list .articles-header {
+    margin-bottom: 0;
+
+}
+
+#main .home-tabs .articles .articles-header h1 {
+    margin: 10px 0;
+    font-family: "Georgia", "Helvetica Neue", Arial, sans-serif;
+}
+
+#main .home-tabs .articles.list h1 {
+    font-size: 16px;
+}
+
+#main .home-tabs .articles .articles-header h1 a {
+    color: #000;
+    display: block;
+    font-size: 25px;
+}
+
+#main .home-tabs .articles .articles-header .articles-aside {
+    color: #828282;
+    font-size: 12px;
+}
+
+#main .home-tabs .articles .articles-content {
+}
+
+#main .home-tabs .articles .articles-content .articles-main {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+#main .home-tabs .articles .articles-content .articles-side {
+    float: right;
+    margin: 0px 40px 10px 80px;
+    text-align: right;
+}
+
+#main .home-tabs .articles .articles-content .articles-side a {
+    display: block;
+    border-radius: 135px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+#main .home-tabs .articles .articles-footer {
+    margin: 20px;
+}
+
+#main .home-tabs .articles .articles-footer .button {
+    display: inline-block;
+    padding: 0.8em 3.618em;
+    color: #FFF;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    width: auto;
+    line-height: 1.618em;
+    -webkit-transition: all ease-in-out 0.2s;
+    -moz-transition: all ease-in-out 0.2s;
+    -ms-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
+    -webkit-border-radius: 300px;
+    border-radius: 300px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#90AC7C), to(#4D7344));
+    background: -moz-linear-gradient(top, #90AC7C, #4D7344);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#90AC7C', endColorstr='#4D7344');
+    background: -o-linear-gradient(top, #90AC7C, #4D7344);
+    background: -ms-linear-gradient(top, #90AC7C, #4D7344);
+    background: linear-gradient(to bottom, #90AC7C, #4D7344);
+}
+
+#main .home-tabs .articles .articles-footer a:after {
+    font-family: 'FontAwesome';
+    display: inline-block;
+    font-size: 100%;
+    margin-left: .618em;
+    line-height: 1em;
+    width: 1em;
+    text-align: right;
+    content: '\f054';
+}
+
+.pagination {
+    margin-top: 40px;
+}
+
+.pagination .pagination-item {
+    margin-right: 20px;
+    color: #5D9DEE;
+    font-size: 20px;
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.pagination .action {
+    color: #8B008B;
+}

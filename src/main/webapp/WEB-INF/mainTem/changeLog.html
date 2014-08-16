@@ -1,0 +1,19 @@
+{% extends "mainTem/base.html" %}
+{% block title %} -做一个有意思的人 {% endblock %}
+{% block headerSide %}side-header left-header{% endblock %}
+
+{% block header %}
+{% include "mainTem/header-side.html" %}
+{% endblock %}
+
+{% block content %}
+{% load url from future %}
+<div id="content" class="animated fadeIn">
+    <div id="main">
+        <p>博客发布</p>
+    </div>
+</div>
+<script>
+</script>
+{% endblock %}
+

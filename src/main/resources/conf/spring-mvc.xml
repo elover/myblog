@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:component-scan base-package="cn.myblog.controller"/>
+    <mvc:annotation-driven />
+    <!--&lt;!&ndash; 自动扫描且只扫描@Controller &ndash;&gt;-->
+    <!--<context:component-scan base-package="cn.myblog" use-default-filters="false">-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>-->
+    <!--</context:component-scan>-->
+
+    <!--<mvc:annotation-driven>-->
+        <!--<mvc:message-converters register-defaults="true">-->
+            <!--&lt;!&ndash; 将StringHttpMessageConverter的默认编码设为UTF-8 &ndash;&gt;-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+                <!--<constructor-arg value="UTF-8" />-->
+            <!--</bean>-->
+            <!--&lt;!&ndash; 将Jackson2HttpMessageConverter的默认格式化输出设为true &ndash;&gt;-->
+            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+                <!--<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />-->
+                <!--<property name="prettyPrint" value="true"/>-->
+            <!--</bean>-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+
+    <!-- 避免IE在ajax请求时，返回json出现下载 -->
+    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+
+
+    <!-- 将Controller抛出的异常转到特定View, 保持SiteMesh的装饰效果 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Throwable">error/500</prop>
+            </props>
+        </property>
+    </bean>
+    <mvc:resources mapping="/static/**" location="/static/" />
+    <mvc:default-servlet-handler/>
+
+    <!-- 对模型视图添加前后缀 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="false" />
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="toolboxConfigLocation" value="/WEB-INF/velocity/tool/velocity-toolbox.xml" />
+        <property name="layoutUrl" value="layout/layout.htm" />
+        <property name="suffix" value=".htm" />
+    </bean>
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="configLocation" value="/WEB-INF/velocity/tool/Velocity.properties"/>
+        <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+    </bean>
+</beans>
