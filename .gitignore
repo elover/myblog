@@ -1,6 +1,7 @@
 
 # Mr Developer
 target/**
+src/main/resources/conf/jdbc.properties
 **/.DS_Store
 **.iml
 .idea
