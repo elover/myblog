@@ -1,0 +1,45 @@
+********************
+*General Information
+********************
+Server Type: MySQL
+Connection Name: rdsebumemeuriv3.mysql.rds.aliyuncs.com
+Host Name / IP Address: rdsebumemeuriv3.mysql.rds.aliyuncs.com
+Port: 3306
+User Name: db2zc99jtpx907ou
+Save password: YES
+Encoding: Unicode (UTF-8)
+Enable MySQL character set: YES
+Use compression: NO
+
+********************
+*Advanced Information
+********************
+Setting Save Path: /Users/mac/Library/Application Support/PremiumSoft CyberTech/Navicat for MySQL/rdsebumemeuriv3.mysql.rds.aliyuncs.com
+Socket timeout (sec): 30
+Timeout reconnection: NO
+Auto connect: NO
+Use socket for localhost connection: NO
+Use advanced connections: NO
+
+********************
+*SSL Information
+********************
+Use SSL: NO
+
+********************
+*SSH Information
+********************
+Use SSH tunnel: NO
+
+********************
+*HTTP Information
+********************
+Use HTTP tunnel: NO
+
+********************
+*Other Information
+********************
+Server Version: 5.1.61-Alibaba-rds-201404-log
+Protocol: 10
+Info: rdsebumemeuriv3.mysql.rds.aliyuncs.com via TCP/IP
+SSL Cipher: N/A
