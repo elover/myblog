@@ -9,7 +9,6 @@
 
     <!-- 命名空间 -->
     <typeAliases>
-        <typeAlias alias="User" type="cn.myblog.model.User"/>
         <typeAlias alias="Category" type="cn.myblog.model.Category" />
         <typeAlias alias="Author" type="cn.myblog.model.Author" />
         <typeAlias alias="Article" type="cn.myblog.model.Article" />
