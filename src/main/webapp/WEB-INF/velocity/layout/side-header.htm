@@ -2,23 +2,25 @@
     <div class="inner-header">
         <a href="${ctx}/" id="logo">
             <h1>西楼</h1>
-            <img src="/static/images/logo.png" alt="lovejs">
+##            <img src="/static/images/logo.png" alt="lovejs">
         </a>
 
         <div class="about">
-            <p>by nan</p>
-
-            <p>front-end developer in thinkjoy</p>
+##            <p>by nan</p>
+            <p>为了服侍于光明</p>
         </div>
         <ul id="nav" class="nav vertical">
             #foreach($item in $categoryList)
                 <li class="nav-item
                     #if(${currentSlug} == ${item.slug}) current_page_item #end ">
-                    <a href="${ctx}/category/${item.slug}">${item.name}</a>
+                    <a href="${ctx}/category/${item.slug}" data-name="${item.name}">${item.slug}</a>
                 </li>
             #end
             <li class="nav-item">
-                <a href="${ctx}/article/1">about</a>
+                <a href="${ctx}/article/1" data-name="关于">about</a>
+            </li>
+            <li class="nav-item">
+                <a href="https://github.com/elover" data-name="github">github</a>
             </li>
             <!--<li class="nav-item"><a href="">音乐</a>-->
             <!--二级菜单-->
@@ -31,6 +33,9 @@
             <!--</li>-->
 
         </ul>
+        <div class="about" style="position: fixed;bottom: 20px;">
+            <p style="color:#111;">我们耕耘于黑暗</p>
+        </div>
 
     </div>
 

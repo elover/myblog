@@ -103,6 +103,7 @@
 }
 
 #nav.vertical .nav-item > a {
+    text-transform: capitalize;
 }
 
 #nav.level .nav-item > a {
@@ -234,14 +235,14 @@
 }
 
 #main .home-tabber li a {
+    color: #FF7377;
 }
 
 #main .home-tabber li a {
     /* font-family: "Open Sans", sans-serif; */
     font-weight: 300;
     font-size: 24px;
-    /*color: #FF7377;*/
-    color: #4D7344;
+    color: #FF7377;
 }
 
 #main .home-tabber li.active a {
@@ -358,12 +359,13 @@
     transition: all ease-in-out 0.2s;
     -webkit-border-radius: 300px;
     border-radius: 300px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#90AC7C), to(#4D7344));
-    background: -moz-linear-gradient(top, #90AC7C, #4D7344);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#90AC7C', endColorstr='#4D7344');
-    background: -o-linear-gradient(top, #90AC7C, #4D7344);
-    background: -ms-linear-gradient(top, #90AC7C, #4D7344);
-    background: linear-gradient(to bottom, #90AC7C, #4D7344);
+    background: #FF7377;
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#90AC7C), to(#4D7344));*/
+    /*background: -moz-linear-gradient(top, #90AC7C, #4D7344);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#90AC7C', endColorstr='#4D7344');*/
+    /*background: -o-linear-gradient(top, #90AC7C, #4D7344);*/
+    /*background: -ms-linear-gradient(top, #90AC7C, #4D7344);*/
+    /*background: linear-gradient(to bottom, #90AC7C, #4D7344);*/
 }
 
 #main .home-tabs .articles .articles-footer a:after {

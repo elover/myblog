@@ -8,14 +8,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="/static/images/favicon.ico" mce_href="/static/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/static/images/favicon.ico" mce_href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/images/favicon.ico" mce_href="/static/images/favicon.ico"
+          type="image/x-icon">
     <link rel="stylesheet" href="/static/css/normalize.css">
     <link rel="stylesheet" href="/static/css/tool.css">
     <link rel="stylesheet" href="/static/css/layout.css">
     <link rel="stylesheet" href="/static/css/core.css">
-##    {% if randomStatus %}
-    <link rel="stylesheet" href="/static/css/core1.css">
-##    {% endif %}
+    #set($randomNumber = $date.getSystemTime() % 3)
+    #if($randomNumber == 0)
+        <style>
+            .side-header #header {
+                background-image: url(${ctx}/static/images/header1.jpg);
+            }
+        </style>
+    #elseif($randomNumber == 1)
+        <style>
+            .side-header #header {
+                background-image: url(${ctx}/static/images/header2.jpg);
+            }
+        </style>
+    #elseif($randomNumber == 2)
+        <style>
+            .side-header #header {
+                background-image: url(${ctx}/static/images/header3.jpg);
+            }
+        </style>
+    #end
     <!--<link rel="stylesheet" href="/static/css/codehilite_monokai.css">-->
     <!--<link rel="stylesheet" href="/static/css/codehilite_manni.css">-->
     <link rel="stylesheet" href="/static/css/codehilite_perldoc.css">
@@ -50,7 +68,7 @@
 </script>
 <script>
     var _hmt = _hmt || [];
-    (function() {
+    (function () {
         var hm = document.createElement("script");
         hm.src = "//hm.baidu.com/hm.js?a4a715fb2c9ce069c04d65556b907e75";
         var s = document.getElementsByTagName("script")[0];

@@ -1,11 +1,11 @@
 /*侧边栏*/
 .side-header #header {
-    background: #2F2A2E url(../images/header2.jpg) no-repeat top center;
+    background-image:url(../images/header3.jpg);
 }
 
-#main .home-tabs .articles .articles-footer .button {
-    background: #FF7377;
-}
-#main .home-tabber li a {
-color: #FF7377;
-}
+/*#main .home-tabs .articles .articles-footer .button {*/
+    /*background: #FF7377;*/
+/*}*/
+/*#main .home-tabber li a {*/
+/*color: #FF7377;*/
+/*}*/
