@@ -1,6 +1,8 @@
 myblog
 ======
 
+a project for build your blog
+
 一个用java写的blog（spring mvc mybatis），喜欢的话就拿去用吧
 
 此工程为maven工程，请先确保你有安装过maven
